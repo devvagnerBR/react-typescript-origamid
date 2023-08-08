@@ -3,130 +3,143 @@
 @tailwind utilities;
 
 *{
-    @apply p-0 m-0 box-border outline-none scroll-smooth font-Poppins leading-4 text-neutral-600 
+    @apply p-0 m-0 box-border outline-none scroll-smooth font-Poppins  
 }
 
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
+body{
+    @apply text-origamid-2  bg-origamid-4
 }
 
-html {
-  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  --font-title: Georgia, 'Times New Roman', Times, serif;
-  --font-size: 1.2rem;
-  --color: #aa87ff;
-  --color-light: #edf;
-  --color-dark: #206;
-  --radius: 0.25rem;
+.box_{
+    @apply p-origamid-normal rounded-[1.25rem]  shadow shadow-origamid-1/20
 }
 
-body {
-  margin: 1.5rem;
+.flex_ {
+    @apply flex gap-origamid-normal
 }
 
-body,
-input,
-textarea,
-button {
-  font-size: var(--font-size);
-  font-family: var(--font);
+.flex > * {
+    @apply flex-1
 }
 
-h1,
-h2,
-h3 {
-  font-family: var(--font-title);
+.container_{
+
+    grid-template-columns:240px auto;
+    @apply grid p-origamid-normal  gap-origamid-normal
+    
+}
+.sidenav_ ul{
+    @apply flex flex-col items-start 
+}
+.sidenav_ li{
+    @apply flex items-center gap-origamid-s
 }
 
-h1,
-h2,
-h3,
-p,
-ul {
-  margin: 1rem 0;
+.sidenav_ li span{
+    @apply w-[2rem] h-[2rem] bg-origamid-4 flex items-center justify-center rounded-full  p-1 m-[0.25rem]
 }
 
-ul {
-  list-style: square;
+
+
+
+.sidenav_ li a {
+    @apply flex-1 text-[1.125rem] text-origamid-2 py-origamid-s  px-0
 }
 
-li {
-  margin-bottom: 0.5rem;
+.sidenav_ li:hover span { 
+    @apply bg-origamid-3 transition-all cursor-pointer
 }
 
-label {
-  display: block;
-  margin-bottom: 0.25rem;
+.daterange_{
+    grid-template-columns: 1fr 1fr ;
+    @apply grid gap-origamid-normal
 }
 
-input,
-textarea {
-  display: block;
-  border: 1px solid #ccc;
-  width: 100%;
-  padding: 0.75rem;
-  border-radius: var(--radius);
-  background: #eee;
-  transition: 0.2s;
+.resumo_{
+
+    @apply text-[1.5rem] font-semibold
+
 }
 
-input[type='checkbox'] {
-  display: inline-block;
-  width: auto;
-  margin: 0 0.5rem 0 0;
+.resumo_ h2{
+
+    @apply text-[1.5rem] mb-origamid-normal font-bold text-origamid-1 
 }
 
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--color);
-  background: white;
-  box-shadow: 0 0 0 3px var(--color-light);
+.venda{
+    display: grid; 
+    grid-template-columns: auto auto 1fr;
+    @apply gap-origamid-normal mb-origamid-s items-center bg-origamid-3
 }
 
-button {
-  display: block;
-  cursor: pointer;
-  border: none;
-  border-radius: var(--radius);
-  transition: 0.1s;
-  background: var(--color);
-  color: var(--color-dark);
-  padding: 0.75em 1.5em;
-  margin-bottom: 1rem;
+.venda div:last-child{
+    @apply justify-self-end
 }
 
-button:hover,
-button:focus {
-  background: var(--color);
-  box-shadow: 0 0 0 3px var(--color-light), 0 0 0 4px var(--color);
-  outline: none;
+.venda a{
+  @apply no-underline text-inherit
 }
 
-button:active {
-  box-shadow: 0 0 0 3px var(--color), 0 0 0 4px var(--color);
+
+
+@keyframes spin {
+    to{
+        transform: rotate(360deg);
+    }
 }
 
-button:disabled {
-  opacity: 0.5;
-  cursor: wait;
+ .loading_animation_{
+    animation: spin 1s infinite
+ }
+
+
+ /* small screens */
+
+  @media (max-width: 1000px){
+
+    .resumo_{
+        flex-direction: column;
+    }
+
+    .daterange_{
+        grid-template-columns: 1fr;
+    }
+
+    .daterange_ *:last-child {
+        grid-row: 1;
+    }
+
+  }  
+  
+  @media (max-width: 700px){
+
+   .container_{
+    grid-template-columns: 1fr;
+   }
+
+   .flex_{
+    flex-direction: column;
+   }
+
+   .sidenav_ ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+   }
+
+   .sidenav_ li a{
+    font-size: 0.875rem;
+   }
+
+   .venda {
+    grid-template-columns: 1fr;
+   }
+
+   .venda div:last-child{
+    justify-self: start;
+   }
+
+   .sidenav_ li span img{
+    @apply w-[30px] h-[30px]  bg-origamid-4 flex items-center justify-center rounded-full  p-1 
 }
 
-hr {
-  border: 2px solid #eee;
-  margin: 2rem auto;
-}
-
-video,
-img {
-  max-width: 100%;
-  display: block;
-}
-
-.flex {
-  display: flex;
-  gap: 1rem;
-}
+  }

@@ -7,7 +7,7 @@ type InputProps = React.ComponentProps<'input'> & {
 
 }
 
-const Input = ( { label, setState, id, ...props }: InputProps ) => {
+const Input = ( { label, id, setState,  ...props }: InputProps ) => {
 
     return (
         <div className='pb-4 w-screen p-4 max-w-[600px]'>
