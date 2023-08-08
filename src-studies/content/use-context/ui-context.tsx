@@ -7,6 +7,8 @@ type IUiContext = {
     setDark: React.Dispatch<React.SetStateAction<boolean>>
 
 }
+
+
 const UiContext = React.createContext<IUiContext | null>( null )
 
 export const useUI = () => {

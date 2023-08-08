@@ -1,6 +1,7 @@
 import React from 'react'
-import Header from './header'
-import Content from './content'
+import Header from '..//use-context/exercicio4/'
+import Content from './exercicio4/content'
+
 
 const Context = () => {
 
